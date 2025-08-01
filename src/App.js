@@ -1,12 +1,28 @@
-
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/headercomp/Header';
 import "./stylings/header.css";
+import About from './components/About';
+import Contact from './components/Contact';
+import Projects from './components/Projects';
+import Home from './components/Home';
+
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <Router>
+      <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

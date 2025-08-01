@@ -1,0 +1,30 @@
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+body.dark-mode {
+    background-color: rgb(3, 3, 75);
+    color: #ffffff;
+}
+
+a {
+    color: #7b68ee;
+    /* medium slate blue accent */
+}
+
+body.light-mode a {
+    color: #6a5acd;
+    /* slate blue for light mode */
+}
+
+body.dark-mode a {
+    color: #b0c4de;
+    /* light steel blue for dark mode */
+}
+
+/* Additional styling for buttons and header can be added here */
