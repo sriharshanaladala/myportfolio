@@ -5,18 +5,9 @@ const githubUrl = "https://github.com/yourusername";
 const linkedinUrl = "https://linkedin.com/in/yourusername";
 const mailTo = "mailto:your.email@example.com";
 
-export const Header = () => {
-    const [darkMode, setDarkMode] = useState(false);
 
-    useEffect(() => {
-        if (darkMode) {
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-        }
-    }, [darkMode]);
+
+const Header = ({ darkMode, setDarkMode }) => {
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -48,3 +39,4 @@ export const Header = () => {
         </div>
     );
 };
+export default Header;

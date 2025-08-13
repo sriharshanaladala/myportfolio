@@ -3,11 +3,25 @@ body {
 }
 
 body.light-mode {
-    background-color: #ffffff;
-    color: #222222;
+    background-color: #f5f5f5;
+    color: #333333;
 }
 
 body.dark-mode {
+    background-color: rgb(3, 3, 75);
+    color: #ffffff;
+}
+
+.App {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .App {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+body.dark-mode .App {
     background-color: rgb(3, 3, 75);
     color: #ffffff;
 }
@@ -18,8 +32,8 @@ a {
 }
 
 body.light-mode a {
-    color: #6a5acd;
-    /* slate blue for light mode */
+    color: #008080;
+    /* teal for light mode */
 }
 
 body.dark-mode a {
