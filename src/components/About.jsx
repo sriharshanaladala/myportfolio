@@ -1,40 +1,169 @@
 import React from 'react';
 
+const aboutData = {
+    profileImage: "https://avatars.githubusercontent.com/u/83389426?v=4",
+    name: "Sriharsha Naladala",
+    title: "Software Developer",
+    description: "Passionate software developer with experience in building web and mobile applications. Skilled in React, Node.js, and modern JavaScript frameworks.",
+    summary: "Experienced in designing, developing, and deploying scalable applications. Strong problem-solving skills and a keen eye for detail. Committed to continuous learning and professional growth.",
+    experienceHighlights: [
+        "Developed multiple full-stack web applications using React and Node.js.",
+        "Built mobile applications with React Native.",
+        "Collaborated with cross-functional teams to deliver high-quality software."
+    ],
+    experience: [
+        {
+            role: "Programmer Analyst Trainee",
+            company: "NextRow Digital",
+            type: "Full-time",
+            period: "Jun 2024 - Present · 1 yr 3 mos",
+            location: "Hyderabad, Telangana, India · On-site",
+            skills: "Adobe Target, Adobe Experience Manager (AEM) and +4 skills",
+            logo: "https://via.placeholder.com/50",
+            align: "left"
+        },
+        {
+            role: "Intern",
+            company: "JSpiders - Training & Development Center",
+            type: "Trainee",
+            period: "Nov 2023 - Jul 2024 · 9 mos",
+            location: "Hyderabad, Telangana, India · On-site",
+            skills: "Cascading Style Sheets (CSS), HTML5 and +3 skills",
+            logo: "https://via.placeholder.com/50",
+            align: "right"
+        }
+    ],
+    education: [
+        {
+            degree: "Master of Computer Applications - MCA, Computer Software Technology",
+            institution: "Krishna Chaitanya Degree & PG College, Nellore",
+            period: "Aug 2021 - Oct 2023",
+            grade: "8.3",
+            logo: "https://via.placeholder.com/50",
+            align: "left"
+        },
+        {
+            degree: "Bachelor of Commerce - BCom, Accounting and Finance",
+            institution: "SVKP degree college, velpur",
+            period: "2016 - 2021",
+            logo: "https://via.placeholder.com/50",
+            align: "right"
+        },
+        {
+            degree: "Intermediate, MEC",
+            institution: "Master Minds",
+            period: "2014 - 2016",
+            grade: "81.8",
+            logo: "https://via.placeholder.com/50",
+            align: "left"
+        },
+        {
+            degree: "High School",
+            institution: "Bhashyam Public School",
+            period: "2013 - 2014",
+            grade: "9.2",
+            logo: "https://via.placeholder.com/50",
+            align: "right"
+        }
+    ],
+    certifications: [
+        {
+            title: "Developing AI Applications with Python and Flask",
+            issuer: "IBM",
+            issued: "Jun 2025",
+            credentialId: "LXLO3931YGW8",
+            logo: "https://via.placeholder.com/50"
+        },
+        {
+            title: "Generative AI: Introduction and Applications",
+            issuer: "IBM",
+            issued: "May 2025",
+            credentialId: "AHWEWUNRX76G",
+            logo: "https://via.placeholder.com/50"
+        }
+    ],
+    contact: {
+        email: "sriharshanaladala@gmail.com",
+        linkedIn: "https://linkedin.com/in/yourusername",
+        github: "https://github.com/yourusername"
+    }
+};
+
 const About = () => {
+    const renderTimelineItem = (item, isLeft) => {
+        const containerStyle = {
+            position: 'relative',
+            width: '50%',
+            padding: '10px 20px',
+            backgroundColor: '#f0f8ff',
+            borderRadius: '8px',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+            alignSelf: isLeft ? 'flex-start' : 'flex-end',
+            marginLeft: isLeft ? '0' : undefined,
+            marginRight: !isLeft ? '0' : undefined,
+        };
+        const dotStyle = {
+            position: 'absolute',
+            top: '20px',
+            [isLeft ? 'right' : 'left']: '-14px',
+            width: '20px',
+            height: '20px',
+            backgroundColor: '#0077be',
+            borderRadius: '50%',
+            border: '4px solid white',
+            boxShadow: '0 0 0 2px #0077be',
+        };
+        return (
+            <div key={item.title || item.degree || item.role} style={containerStyle}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                    <img src={item.logo} alt={`${item.company || item.institution || item.issuer} logo`} style={{ width: '50px', height: '50px' }} />
+                    <div>
+                        {item.role && <h3>{item.role}</h3>}
+                        {item.degree && <h3>{item.degree}</h3>}
+                        {item.title && <h3>{item.title}</h3>}
+                        {item.company && <p>{item.company} · {item.type || ''}</p>}
+                        {item.institution && <p>{item.institution}</p>}
+                        {item.issuer && <p>{item.issuer}</p>}
+                        {item.period && <p>{item.period}</p>}
+                        {item.grade && <p>Grade: {item.grade}</p>}
+                        {item.location && <p>{item.location}</p>}
+                        {item.skills && <p>{item.skills}</p>}
+                        {item.issued && <p>Issued {item.issued}</p>}
+                        {item.credentialId && <p>Credential ID {item.credentialId}</p>}
+                    </div>
+                </div>
+                <div style={dotStyle}></div>
+            </div>
+        );
+    };
+
     return (
         <div style={{ maxWidth: '800px', margin: '40px auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
             <h1>About Me</h1>
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px' }}>
                 <img
-                    src="https://via.placeholder.com/150"
+                    src={aboutData.profileImage}
                     alt="Profile"
                     style={{ borderRadius: '50%', width: '150px', height: '150px', objectFit: 'cover' }}
                 />
                 <div>
-                    <h2>Sriharsha Naladala</h2>
-                    <h3>Software Developer</h3>
-                    <p>
-                        Passionate software developer with experience in building web and mobile applications.
-                        Skilled in React, Node.js, and modern JavaScript frameworks.
-                    </p>
+                    <h2>{aboutData.name}</h2>
+                    <h3>{aboutData.title}</h3>
+                    <p>{aboutData.description}</p>
                 </div>
             </div>
 
             <section>
                 <h2>Summary</h2>
-                <p>
-                    Experienced in designing, developing, and deploying scalable applications.
-                    Strong problem-solving skills and a keen eye for detail.
-                    Committed to continuous learning and professional growth.
-                </p>
+                <p>{aboutData.summary}</p>
             </section>
 
             <section>
                 <h2>Experience Highlights</h2>
                 <ul>
-                    <li>Developed multiple full-stack web applications using React and Node.js.</li>
-                    <li>Built mobile applications with React Native.</li>
-                    <li>Collaborated with cross-functional teams to deliver high-quality software.</li>
+                    {aboutData.experienceHighlights.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
                 </ul>
             </section>
 
@@ -61,75 +190,7 @@ const About = () => {
 
                     {/* Experience items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-                        {/* Experience item 1 - left side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-start',
-                            marginLeft: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="NextRow Digital logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>Programmer Analyst Trainee</h3>
-                                    <p>NextRow Digital · Full-time</p>
-                                    <p>Jun 2024 - Present · 1 yr 3 mos</p>
-                                    <p>Hyderabad, Telangana, India · On-site</p>
-                                    <p>Adobe Target, Adobe Experience Manager (AEM) and +4 skills</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                right: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
-
-                        {/* Experience item 2 - right side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-end',
-                            marginRight: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="JSpiders logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>Intern</h3>
-                                    <p>JSpiders - Training & Development Center · Trainee</p>
-                                    <p>Nov 2023 - Jul 2024 · 9 mos</p>
-                                    <p>Hyderabad, Telangana, India · On-site</p>
-                                    <p>Cascading Style Sheets (CSS), HTML5 and +3 skills</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                left: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
+                        {aboutData.experience.map((item, index) => renderTimelineItem(item, index % 2 === 0))}
                     </div>
                 </div>
             </section>
@@ -157,140 +218,7 @@ const About = () => {
 
                     {/* Education items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-                        {/* Education item 1 - left side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-start',
-                            marginLeft: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="Krishna Chaitanya Degree & PG College logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>Master of Computer Applications - MCA, Computer Software Technology</h3>
-                                    <p>Krishna Chaitanya Degree & PG College, Nellore</p>
-                                    <p>Aug 2021 - Oct 2023</p>
-                                    <p>Grade: 8.3</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                right: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
-
-                        {/* Education item 2 - right side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-end',
-                            marginRight: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="SVKP degree college logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>Bachelor of Commerce - BCom, Accounting and Finance</h3>
-                                    <p>SVKP degree college, velpur</p>
-                                    <p>2016 - 2021</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                left: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
-
-                        {/* Education item 3 - left side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-start',
-                            marginLeft: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="Master Minds logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>Intermediate, MEC</h3>
-                                    <p>Master Minds</p>
-                                    <p>2014 - 2016</p>
-                                    <p>Grade: 81.8</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                right: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
-
-                        {/* Education item 4 - right side */}
-                        <div style={{
-                            position: 'relative',
-                            width: '50%',
-                            padding: '10px 20px',
-                            backgroundColor: '#f0f8ff',
-                            borderRadius: '8px',
-                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                            alignSelf: 'flex-end',
-                            marginRight: '0',
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src="https://via.placeholder.com/50" alt="Bhashyam Public School logo" style={{ width: '50px', height: '50px' }} />
-                                <div>
-                                    <h3>High School</h3>
-                                    <p>Bhashyam Public School</p>
-                                    <p>2013 - 2014</p>
-                                    <p>Grade: 9.2</p>
-                                </div>
-                            </div>
-                            {/* Timeline dot */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                left: '-14px',
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: '#0077be',
-                                borderRadius: '50%',
-                                border: '4px solid white',
-                                boxShadow: '0 0 0 2px #0077be',
-                            }}></div>
-                        </div>
+                        {aboutData.education.map((item, index) => renderTimelineItem(item, index % 2 === 0))}
                     </div>
                 </div>
             </section>
@@ -298,32 +226,25 @@ const About = () => {
             <section>
                 <h2>Licenses & Certifications</h2>
                 <div style={{ marginBottom: '20px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
-                        <img src="https://via.placeholder.com/50" alt="IBM logo" style={{ width: '50px', height: '50px' }} />
-                        <div>
-                            <h3>Developing AI Applications with Python and Flask</h3>
-                            <p>IBM</p>
-                            <p>Issued Jun 2025</p>
-                            <p>Credential ID LXLO3931YGW8</p>
+                    {aboutData.certifications.map((cert, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
+                            <img src={cert.logo} alt={`${cert.issuer} logo`} style={{ width: '50px', height: '50px' }} />
+                            <div>
+                                <h3>{cert.title}</h3>
+                                <p>{cert.issuer}</p>
+                                <p>Issued {cert.issued}</p>
+                                <p>Credential ID {cert.credentialId}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                        <img src="https://via.placeholder.com/50" alt="IBM logo" style={{ width: '50px', height: '50px' }} />
-                        <div>
-                            <h3>Generative AI: Introduction and Applications</h3>
-                            <p>IBM</p>
-                            <p>Issued May 2025</p>
-                            <p>Credential ID AHWEWUNRX76G</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </section>
 
             <section>
                 <h2>Contact</h2>
-                <p>Email: your.email@example.com</p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourusername</a></p>
-                <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">github.com/yourusername</a></p>
+                <p>Email: {aboutData.contact.email}</p>
+                <p>LinkedIn: <a href={aboutData.contact.linkedIn} target="_blank" rel="noopener noreferrer">{aboutData.contact.linkedIn}</a></p>
+                <p>GitHub: <a href={aboutData.contact.github} target="_blank" rel="noopener noreferrer">{aboutData.contact.github}</a></p>
             </section>
         </div>
     );

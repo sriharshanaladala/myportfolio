@@ -1,15 +1,33 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import projectsData from '../data/projectsData';
-import AddProjectForm from './AddProjectForm';
+import { getProjectsData } from '../data/projectsData';
 
 const Projects = () => {
-    // State for projects list, search, filters, and pagination
-    const [projects, setProjects] = useState(projectsData);
+    // State for projects list, search, filters, loading, error, and pagination
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
-    const projectsPerPage = 3;
+    const projectsPerPage = 4;
+
+    // Fetch projects data on mount
+    useEffect(() => {
+        async function fetchData() {
+            setLoading(true);
+            setError(null);
+            try {
+                const data = await getProjectsData();
+                setProjects(data);
+            } catch (err) {
+                setError(err.message || 'Failed to load projects');
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchData();
+    }, []);
 
     // Get unique categories for filter buttons
     const categories = ['all', ...new Set(projects.map(project => project.category))];
@@ -30,7 +48,7 @@ const Projects = () => {
     const currentProjects = filteredProjects.slice(startIndex, startIndex + projectsPerPage);
 
     // Reset to first page when filters or projects change
-    React.useEffect(() => {
+    useEffect(() => {
         setCurrentPage(1);
     }, [searchTerm, selectedCategory, projects]);
 
@@ -76,10 +94,13 @@ const Projects = () => {
         }
     };
 
-    // Handler to add new project from form
-    const handleAddProject = (newProject) => {
-        setProjects(prevProjects => [newProject, ...prevProjects]);
-    };
+    if (loading) {
+        return <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>Loading projects...</div>;
+    }
+
+    if (error) {
+        return <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto', color: 'red' }}>Error: {error}</div>;
+    }
 
     return (
         <motion.div
@@ -89,9 +110,6 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
         >
             <h1>My Works</h1>
-
-            {/* Add Project Form - only show in development */}
-            {process.env.NODE_ENV !== 'production' && <AddProjectForm onAddProject={handleAddProject} />}
 
             {/* Search Bar */}
             <div style={{ marginBottom: '20px' }}>
@@ -119,7 +137,7 @@ const Projects = () => {
                 justifyContent: 'center'
             }}>
                 {categories.map(category => (
-                    <button
+                    <motion.button
                         key={category}
                         onClick={() => setSelectedCategory(category)}
                         style={{
@@ -140,51 +158,142 @@ const Projects = () => {
                         <span style={{ textTransform: 'capitalize' }}>
                             {category === 'all' ? 'All Projects' : category}
                         </span>
-                    </button>
+                    </motion.button>
                 ))}
             </div>
 
             {/* Projects List */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                gap: '20px',
+                marginTop: '20px'
+            }}>
                 {currentProjects.length > 0 ? (
                     currentProjects.map(project => (
                         <motion.div
                             key={project.id}
                             style={{
-                                padding: '15px',
-                                borderRadius: '10px',
-                                boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                                backgroundColor: '#f0f8ff'
+                                backgroundColor: '#fff',
+                                border: '1px solid #d1d5db',
+                                borderRadius: '8px',
+                                padding: '16px',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                                transition: 'boxShadow 0.2s, transform 0.2s',
+                                cursor: 'pointer'
                             }}
-                            whileHover={{ scale: 1.02, boxShadow: '0 6px 12px rgba(0,0,0,0.15)' }}
+                            whileHover={{
+                                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                                transform: 'translateY(-2px)'
+                            }}
                         >
                             <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                marginBottom: '10px'
+                                marginBottom: '12px'
                             }}>
                                 {getCategoryIcon(project.category)}
-                                <h2 style={{ margin: '0 0 0 10px' }}>
-                                    <a href={`/projects/${project.id}`} style={{ color: '#0077be', textDecoration: 'none' }}>
+                                <h3 style={{
+                                    margin: '0 0 0 10px',
+                                    fontSize: '18px',
+                                    fontWeight: '600',
+                                    color: '#24292f',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    flex: 1
+                                }}>
+                                    <a href={`/projects/${project.id}`} style={{
+                                        color: '#0969da',
+                                        textDecoration: 'none',
+                                        display: 'block',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap'
+                                    }} title={project.title}>
                                         {project.title}
                                     </a>
-                                </h2>
+                                </h3>
                             </div>
-                            <p>{project.description}</p>
-                            <div style={{ marginTop: '10px' }}>
-                                <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ marginRight: '15px', color: '#0077be' }}>
-                                    GitHub
+                            <p style={{
+                                color: '#656d76',
+                                fontSize: '14px',
+                                lineHeight: '1.5',
+                                marginBottom: '12px'
+                            }}>
+                                {project.description}
+                            </p>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                marginBottom: '12px'
+                            }}>
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
+                                    color: '#0969da',
+                                    textDecoration: 'none',
+                                    fontSize: '14px',
+                                    fontWeight: '500'
+                                }}>
+                                    View on GitHub
                                 </a>
-                                <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{ color: '#0077be' }}>
-                                    Live Demo
-                                </a>
+                                {project.demo && (
+                                    <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{
+                                        color: '#0969da',
+                                        textDecoration: 'none',
+                                        fontSize: '14px',
+                                        fontWeight: '500'
+                                    }}>
+                                        Live Demo
+                                    </a>
+                                )}
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                fontSize: '12px',
+                                color: '#656d76'
+                            }}>
+                                <div style={{ display: 'flex', gap: '12px' }}>
+                                    <span>⭐ {project.stars}</span>
+                                    <span>🍴 {project.forks}</span>
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                    <span style={{
+                                        width: '8px',
+                                        height: '8px',
+                                        borderRadius: '50%',
+                                        backgroundColor: project.language === 'JavaScript' ? '#f1e05a' :
+                                            project.language === 'Python' ? '#3572A5' :
+                                                project.language === 'HTML' ? '#e34c26' :
+                                                    project.language === 'CSS' ? '#563d7c' :
+                                                        '#586069',
+                                        display: 'inline-block'
+                                    }}></span>
+                                    <span>{project.language}</span>
+                                </div>
+                            </div>
+                            <div style={{
+                                fontSize: '12px',
+                                color: '#656d76',
+                                marginTop: '8px'
+                            }}>
+                                Updated {new Date(project.updatedAt).toLocaleDateString()}
                             </div>
                         </motion.div>
                     ))
                 ) : (
-                    <div style={{ textAlign: 'center', padding: '40px' }}>
-                        <h3>No projects found</h3>
-                        <p>Try adjusting your search or filter criteria</p>
+                    <div style={{
+                        gridColumn: '1 / -1',
+                        textAlign: 'center',
+                        padding: '40px',
+                        backgroundColor: '#fff',
+                        border: '1px solid #d1d5db',
+                        borderRadius: '8px'
+                    }}>
+                        <h3 style={{ color: '#24292f' }}>No projects found</h3>
+                        <p style={{ color: '#656d76' }}>Try adjusting your search or filter criteria</p>
                     </div>
                 )}
             </div>

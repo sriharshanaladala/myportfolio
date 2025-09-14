@@ -10,7 +10,7 @@ const ProfilePhoto = () => {
             transition={{ duration: 0.8 }}
         >
             <motion.img
-                src="/profile-photo.jpg"
+                src="https://avatars.githubusercontent.com/u/83389426?v=4"
                 alt="Sriharsha Naladala"
                 style={{ maxWidth: '250px', borderRadius: '50%', cursor: 'pointer' }}
                 whileHover={{ scale: 1.1 }}
