@@ -1,17 +1,15 @@
 const GITHUB_API_BASE = 'https://api.github.com';
-const GITHUB_TOKEN = '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';
 
-async function fetchUserRepos() {
+async function fetchUserRepos(username = 'sriharshanaladala') {
     const perPage = 100;
     let page = 1;
     let allRepos = [];
     try {
         while (true) {
-            const url = `${GITHUB_API_BASE}/user/repos?per_page=${perPage}&page=${page}&sort=updated`;
+            const url = `${GITHUB_API_BASE}/users/${username}/repos?per_page=${perPage}&page=${page}&sort=updated`;
             console.log(`Fetching page ${page} from GitHub API...`);
             const response = await fetch(url, {
                 headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
                     'Accept': 'application/vnd.github.v3+json'
                 }
             });
