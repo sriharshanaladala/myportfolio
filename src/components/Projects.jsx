@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getProjectsData } from '../data/projectsData';
+import { fetchUserRepos } from '../utils/githubApi';
 
 const Projects = () => {
+    const navigate = useNavigate();
+
     // State for projects list, search, filters, loading, error, and pagination
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,8 +21,21 @@ const Projects = () => {
             setLoading(true);
             setError(null);
             try {
-                const data = await getProjectsData();
-                setProjects(data);
+                const data = await fetchUserRepos();
+                // Map GitHub data to expected format
+                const mappedData = data.map(repo => ({
+                    id: repo.id,
+                    title: repo.name,
+                    description: repo.description || 'No description available',
+                    github: repo.html_url,
+                    stars: repo.stargazers_count,
+                    forks: repo.forks_count,
+                    language: repo.language || 'Unknown',
+                    updatedAt: repo.updated_at,
+                    category: 'web', // Default category
+                    demo: null // No demo link from GitHub
+                }));
+                setProjects(mappedData);
             } catch (err) {
                 setError(err.message || 'Failed to load projects');
             } finally {
@@ -110,6 +126,38 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
         >
             <h1>My Works</h1>
+
+            {/* Navigation Buttons */}
+            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button
+                    onClick={() => navigate('/')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        backgroundColor: '#0077be',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    Back to Home
+                </button>
+                <button
+                    onClick={() => navigate('/about')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        backgroundColor: '#0077be',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    About Me
+                </button>
+            </div>
 
             {/* Search Bar */}
             <div style={{ marginBottom: '20px' }}>

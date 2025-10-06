@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const aboutData = {
     profileImage: "https://avatars.githubusercontent.com/u/83389426?v=4",
@@ -90,6 +91,8 @@ const aboutData = {
 };
 
 const About = () => {
+    const navigate = useNavigate();
+
     const renderTimelineItem = (item, isLeft) => {
         const containerStyle = {
             position: 'relative',
@@ -140,6 +143,39 @@ const About = () => {
     return (
         <div style={{ maxWidth: '800px', margin: '40px auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
             <h1>About Me</h1>
+
+            {/* Navigation Buttons */}
+            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button
+                    onClick={() => navigate('/')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        backgroundColor: '#0077be',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    Back to Home
+                </button>
+                <button
+                    onClick={() => navigate('/projects')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        backgroundColor: '#0077be',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    View Projects
+                </button>
+            </div>
+
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px' }}>
                 <img
                     src={aboutData.profileImage}
