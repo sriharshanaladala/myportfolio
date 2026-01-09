@@ -104,6 +104,7 @@ const About = () => {
             alignSelf: isLeft ? 'flex-start' : 'flex-end',
             marginLeft: isLeft ? '0' : undefined,
             marginRight: !isLeft ? '0' : undefined,
+            color: '#333',
         };
         const dotStyle = {
             position: 'absolute',
@@ -116,23 +117,34 @@ const About = () => {
             border: '4px solid white',
             boxShadow: '0 0 0 2px #0077be',
         };
+        const headingStyle = {
+            color: '#0077be',
+            fontSize: '18px',
+            marginBottom: '5px',
+            fontWeight: 'bold',
+        };
+        const textStyle = {
+            color: '#555',
+            fontSize: '14px',
+            margin: '3px 0',
+        };
         return (
             <div key={item.title || item.degree || item.role} style={containerStyle}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <img src={item.logo} alt={`${item.company || item.institution || item.issuer} logo`} style={{ width: '50px', height: '50px' }} />
                     <div>
-                        {item.role && <h3>{item.role}</h3>}
-                        {item.degree && <h3>{item.degree}</h3>}
-                        {item.title && <h3>{item.title}</h3>}
-                        {item.company && <p>{item.company} · {item.type || ''}</p>}
-                        {item.institution && <p>{item.institution}</p>}
-                        {item.issuer && <p>{item.issuer}</p>}
-                        {item.period && <p>{item.period}</p>}
-                        {item.grade && <p>Grade: {item.grade}</p>}
-                        {item.location && <p>{item.location}</p>}
-                        {item.skills && <p>{item.skills}</p>}
-                        {item.issued && <p>Issued {item.issued}</p>}
-                        {item.credentialId && <p>Credential ID {item.credentialId}</p>}
+                        {item.role && <h3 style={headingStyle}>{item.role}</h3>}
+                        {item.degree && <h3 style={headingStyle}>{item.degree}</h3>}
+                        {item.title && <h3 style={headingStyle}>{item.title}</h3>}
+                        {item.company && <p style={textStyle}>{item.company} · {item.type || ''}</p>}
+                        {item.institution && <p style={textStyle}>{item.institution}</p>}
+                        {item.issuer && <p style={textStyle}>{item.issuer}</p>}
+                        {item.period && <p style={textStyle}>{item.period}</p>}
+                        {item.grade && <p style={textStyle}>Grade: {item.grade}</p>}
+                        {item.location && <p style={textStyle}>{item.location}</p>}
+                        {item.skills && <p style={textStyle}>{item.skills}</p>}
+                        {item.issued && <p style={textStyle}>Issued {item.issued}</p>}
+                        {item.credentialId && <p style={textStyle}>Credential ID {item.credentialId}</p>}
                     </div>
                 </div>
                 <div style={dotStyle}></div>
@@ -230,11 +242,10 @@ const About = () => {
                     </div>
                 </div>
             </section>
-
             <section>
                 <h2>Education</h2>
                 <div style={{
-                    position: 'relative',
+                    position:'relative',
                     margin: '20px 0',
                     paddingLeft: '40px',
                     paddingRight: '40px',
