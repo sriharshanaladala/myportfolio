@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // provide your Formspree form ID below (e.g., 'your-form-id').
 // Sign up at https://formspree.io/ and create a form.
 // If you do NOT provide this, the form will fall back to creating a mailto: link.
-const formspreeFormId = 'xjggvvbg'; // e.g. 'xpznqkwe'
+const formspreeFormId = process.env.REACT_APP_FORMSPEE_FORM_ID; // e.g. 'xpznqkwe'
 
 // LinkedIn URL
 const linkedinUrl = process.env.REACT_APP_LINKEDIN_URL;
