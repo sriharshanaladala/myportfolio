@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../stylings/darklightmode.css';
 
-const githubUrl = "https://github.com/yourusername";
-const linkedinUrl = "https://linkedin.com/in/yourusername";
-const mailTo = "mailto:your.email@example.com";
+const githubUrl = process.env.REACT_APP_GITHUB_URL;
+const linkedinUrl = process.env.REACT_APP_LINKEDIN_URL;
+const mailTo = `mailto:${process.env.REACT_APP_EMAIL}`;
 
 
 
@@ -15,7 +16,9 @@ const Header = ({ darkMode, setDarkMode }) => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 20px' }}>
-            <p className="logo">SRIHARSHA NALADALA</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                <p className="logo">SRIHARSHA NALADALA</p>
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <button onClick={toggleDarkMode} style={{ cursor: 'pointer', padding: '5px 10px' }}>
                     {darkMode ? 'Light Mode' : 'Dark Mode'}

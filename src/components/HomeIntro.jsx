@@ -50,6 +50,14 @@ const HomeIntro = () => {
             >
                 My Works
             </motion.button>
+            <motion.button
+                style={buttonStyle}
+                onClick={() => navigate('/contact')}
+                whileHover={{ scale: 1.1, ...buttonHover }}
+                whileTap={{ scale: 0.95 }}
+            >
+                Contact
+            </motion.button>
         </motion.div>
     );
 };

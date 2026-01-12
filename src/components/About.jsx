@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Import logos
+import nextRowLogo from '../data/NextRow_Logo_Vertical.png';
+import jspidersLogo from '../data/pyspiders.jpg';
+import svkpLogo from '../data/svkp logo.jpg';
+import masterMindsLogo from '../data/mm logo.jpg';
+import krishnaLogo from '../data/kist logo.jpg';
+import bhashyamLogo from '../data/bhashyam school.png';
+
+
 const aboutData = {
     profileImage: "https://avatars.githubusercontent.com/u/83389426?v=4",
     name: "Sriharsha Naladala",
-    title: "Software Developer",
-    description: "Passionate software developer with experience in building web and mobile applications. Skilled in React, Node.js, and modern JavaScript frameworks.",
-    summary: "Experienced in designing, developing, and deploying scalable applications. Strong problem-solving skills and a keen eye for detail. Committed to continuous learning and professional growth.",
+    title: "Programmer Analyst — NextRow Digital",
+    description: "Hi, I'm Sri Harsha — a passionate developer blending technology, business, and AI-driven creativity. Currently focused on personalization with Adobe Target and AEM.",
+    summary: "Working as an Adobe Target Developer delivering personalized digital experiences. Hands-on with AEM authoring and component development in local environments. Exploring AI-assisted development and vibe coding for rapid prototyping.",
     experienceHighlights: [
-        "Developed multiple full-stack web applications using React and Node.js.",
-        "Built mobile applications with React Native.",
-        "Collaborated with cross-functional teams to deliver high-quality software."
+        "Adobe Target personalization for enterprise websites",
+        "AEM component development and content authoring",
+        "AI-assisted development workflows and rapid prototyping (vibe coding)"
     ],
+    currentFocus: "Personalization with Adobe Target for large-scale enterprise websites. Working knowledge of AEM Sites, component development, and authoring tools.",
+    vibeCoding: "Vibe coding is an AI-powered approach where natural language inputs drive code generation (e.g., ChatGPT/Codex) so I can focus on strategy and UX while AI helps with boilerplate code.",
+    technicalSkills: {
+        languages: ["JavaScript", "React", "Node.js", "Express.js", "Python"],
+        web: ["HTML", "CSS", "Bootstrap", "REST APIs"],
+        adobe: ["Adobe Target", "AEM (local setup & authoring)"],
+        db: ["MongoDB", "MySQL", "PostgreSQL"],
+        tools: ["Git", "GitHub", "VS Code", "Postman", "Linux", "Agile"],
+        aiLearning: ["Pandas", "NumPy", "Scikit-learn", "OpenCV (basics)"]
+    },
     experience: [
         {
-            role: "Programmer Analyst Trainee",
+            role: "Programmer Analyst",
             company: "NextRow Digital",
             type: "Full-time",
-            period: "Jun 2024 - Present · 1 yr 3 mos",
+            period: "Jun 2024 - Present",
             location: "Hyderabad, Telangana, India · On-site",
-            skills: "Adobe Target, Adobe Experience Manager (AEM) and +4 skills",
-            logo: "https://via.placeholder.com/50",
+            skills: ["Adobe Target", "AEM", "Javascript", "Html", "CSS","Jquery"],
+            logo: nextRowLogo,
             align: "left"
         },
         {
@@ -29,8 +48,8 @@ const aboutData = {
             type: "Trainee",
             period: "Nov 2023 - Jul 2024 · 9 mos",
             location: "Hyderabad, Telangana, India · On-site",
-            skills: "Cascading Style Sheets (CSS), HTML5 and +3 skills",
-            logo: "https://via.placeholder.com/50",
+            skills: ["CSS", "HTML5", "JavaScript","Python","Mysql"],
+            logo: jspidersLogo,
             align: "right"
         }
     ],
@@ -40,14 +59,14 @@ const aboutData = {
             institution: "Krishna Chaitanya Degree & PG College, Nellore",
             period: "Aug 2021 - Oct 2023",
             grade: "8.3",
-            logo: "https://via.placeholder.com/50",
+            logo: krishnaLogo,
             align: "left"
         },
         {
             degree: "Bachelor of Commerce - BCom, Accounting and Finance",
             institution: "SVKP degree college, velpur",
             period: "2016 - 2021",
-            logo: "https://via.placeholder.com/50",
+            logo: svkpLogo,
             align: "right"
         },
         {
@@ -55,7 +74,7 @@ const aboutData = {
             institution: "Master Minds",
             period: "2014 - 2016",
             grade: "81.8",
-            logo: "https://via.placeholder.com/50",
+            logo: masterMindsLogo,
             align: "left"
         },
         {
@@ -63,7 +82,7 @@ const aboutData = {
             institution: "Bhashyam Public School",
             period: "2013 - 2014",
             grade: "9.2",
-            logo: "https://via.placeholder.com/50",
+            logo: bhashyamLogo,
             align: "right"
         }
     ],
@@ -73,20 +92,20 @@ const aboutData = {
             issuer: "IBM",
             issued: "Jun 2025",
             credentialId: "LXLO3931YGW8",
-            logo: "https://via.placeholder.com/50"
+            logo: "https://logos-world.net/wp-content/uploads/2020/09/IBM-Logo.png"
         },
         {
             title: "Generative AI: Introduction and Applications",
             issuer: "IBM",
             issued: "May 2025",
             credentialId: "AHWEWUNRX76G",
-            logo: "https://via.placeholder.com/50"
+            logo: "https://logos-world.net/wp-content/uploads/2020/09/IBM-Logo.png"
         }
     ],
     contact: {
-        email: "sriharshanaladala@gmail.com",
-        linkedIn: "https://linkedin.com/in/yourusername",
-        github: "https://github.com/yourusername"
+        email: process.env.REACT_APP_EMAIL,
+        linkedIn: process.env.REACT_APP_LINKEDIN_URL,
+        github: process.env.REACT_APP_GITHUB_URL
     }
 };
 
@@ -142,7 +161,15 @@ const About = () => {
                         {item.period && <p style={textStyle}>{item.period}</p>}
                         {item.grade && <p style={textStyle}>Grade: {item.grade}</p>}
                         {item.location && <p style={textStyle}>{item.location}</p>}
-                        {item.skills && <p style={textStyle}>{item.skills}</p>}
+                        {item.skills && (Array.isArray(item.skills) ? (
+                            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: 6 }}>
+                                {item.skills.map((s, idx) => (
+                                    <span key={idx} style={{ background: '#eef2ff', color: '#0b3b66', padding: '4px 8px', borderRadius: 6, fontSize: 12 }}>{s}</span>
+                                ))}
+                            </div>
+                        ) : (
+                            <p style={textStyle}>{item.skills}</p>
+                        ))}
                         {item.issued && <p style={textStyle}>Issued {item.issued}</p>}
                         {item.credentialId && <p style={textStyle}>Credential ID {item.credentialId}</p>}
                     </div>
@@ -186,6 +213,20 @@ const About = () => {
                 >
                     View Projects
                 </button>
+                <button
+                    onClick={() => navigate('/resume')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        backgroundColor: '#10b981',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    View Resume
+                </button>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px' }}>
@@ -204,6 +245,8 @@ const About = () => {
             <section>
                 <h2>Summary</h2>
                 <p>{aboutData.summary}</p>
+                <p><strong>Current focus:</strong> {aboutData.currentFocus}</p>
+                <p><strong>What is Vibe Coding?</strong> {aboutData.vibeCoding}</p>
             </section>
 
             <section>
@@ -213,6 +256,24 @@ const About = () => {
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: 180 }}>
+                        <h4>Languages / Frameworks</h4>
+                        <ul>{aboutData.technicalSkills.languages.map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                    </div>
+                    <div style={{ minWidth: 180 }}>
+                        <h4>Web / Tools</h4>
+                        <ul>{aboutData.technicalSkills.web.concat(aboutData.technicalSkills.tools).map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                    </div>
+                    <div style={{ minWidth: 180 }}>
+                        <h4>Databases / AI</h4>
+                        <ul>{aboutData.technicalSkills.db.concat(aboutData.technicalSkills.aiLearning).map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                    </div>
+                </div>
             </section>
 
             <section>

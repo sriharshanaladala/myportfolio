@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Projects from './components/Projects';
 import Home from './components/Home';
 import ProjectDetail from './components/ProjectDetail';
+import Resume from './components/Resume';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </div>
     </Router>

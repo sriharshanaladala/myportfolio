@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Bio
+
+Hi, I'm Sri Harsha — a passionate developer blending technology, business, and AI-driven creativity. I'm currently a Programmer Analyst Trainee at NextRow Digital, working as an Adobe Target Developer focused on delivering personalized digital experiences. I’ve also gained hands-on experience with Adobe Experience Manager (AEM) as both a full stack developer and content author in local environments.
+
+Current Focus: Personalization with Adobe Target for large-scale enterprise websites. Working knowledge of AEM Sites, component development, and authoring tools. Exploring AI-assisted development and rapid prototyping through "vibe coding" — an approach where AI tools help translate ideas into code.
+
+Technical Skills: JavaScript, React, Node.js, Express.js, Python, Django (familiar), FastAPI, HTML, CSS, Bootstrap, REST APIs, Adobe Target, AEM, MongoDB, MySQL, PostgreSQL, Git, GitHub, VS Code, Postman, Agile, Linux. Learning: Pandas, NumPy, Scikit-learn, OpenCV basics.
+
 ## Available Scripts
 
 In the project directory, you can run:
