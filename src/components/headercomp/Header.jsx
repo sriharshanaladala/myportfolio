@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../../stylings/darklightmode.css';
 
 const githubUrl = process.env.REACT_APP_GITHUB_URL;
