@@ -1,8 +1,12 @@
 import React from 'react';
 
-const WaterWaveBackground = () => {
+const WaterWaveBackground = ({ darkMode = false }) => {
+    const gradientColors = darkMode
+        ? { start: '#1e3a5f', end: '#2a4a7a' } // Deep ocean blues for dark mode
+        : { start: '#20B2AA', end: '#48D1CC' }; // Turquoise ocean waves for light mode
+
     return (
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden', zIndex: -2 }}>
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', zIndex: -1, pointerEvents: 'none' }}>
             <style>
                 {`
                     @keyframes wave1 {
@@ -43,8 +47,8 @@ const WaterWaveBackground = () => {
             >
                 <defs>
                     <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#001a33" />
-                        <stop offset="100%" stopColor="#004080" />
+                        <stop offset="0%" stopColor={gradientColors.start} />
+                        <stop offset="100%" stopColor={gradientColors.end} />
                     </linearGradient>
                 </defs>
                 <path

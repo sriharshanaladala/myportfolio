@@ -10,7 +10,8 @@ const Resume = () => {
   return (
     <div className="resume-root">
       <div className="resume-actions">
-        <button onClick={() => window.print()}>Print / Save PDF</button>
+        <button onClick={() => navigate('/')}>Back to Home</button>
+        <button onClick={() => window.print()} style={{ marginLeft: 8 }}>Print / Save PDF</button>
         <button onClick={() => navigate('/contact')} style={{ marginLeft: 8 }}>Contact</button>
       </div>
 

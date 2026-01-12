@@ -117,13 +117,13 @@ const About = () => {
             position: 'relative',
             width: '50%',
             padding: '10px 20px',
-            backgroundColor: '#f0f8ff',
+            backgroundColor: 'var(--timeline-bg, #f0f8ff)',
             borderRadius: '8px',
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
             alignSelf: isLeft ? 'flex-start' : 'flex-end',
             marginLeft: isLeft ? '0' : undefined,
             marginRight: !isLeft ? '0' : undefined,
-            color: '#333',
+            color: 'var(--timeline-text, #333)',
         };
         const dotStyle = {
             position: 'absolute',
@@ -143,7 +143,7 @@ const About = () => {
             fontWeight: 'bold',
         };
         const textStyle = {
-            color: '#555',
+            color: 'var(--timeline-secondary-text, #555)',
             fontSize: '14px',
             margin: '3px 0',
         };

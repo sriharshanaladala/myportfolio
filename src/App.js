@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/headercomp/Header';
@@ -9,13 +9,19 @@ import Projects from './components/Projects';
 import Home from './components/Home';
 import ProjectDetail from './components/ProjectDetail';
 import Resume from './components/Resume';
+import WaterWaveBackground from './components/WaterWaveBackground';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark-mode' : 'light-mode';
+  }, [darkMode]);
+
   return (
     <Router>
       <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <WaterWaveBackground darkMode={darkMode} />
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />

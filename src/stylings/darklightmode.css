@@ -1,29 +1,23 @@
 body {
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 body.light-mode {
-    background-color: #f5f5f5;
-    color: #333333;
+    background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 30%, #AFEEEE 70%, #4682B4 100%);
+    color: #1a252f;
+    min-height: 100vh;
+    --timeline-bg: #f0f8ff;
+    --timeline-text: #333;
+    --timeline-secondary-text: #555;
 }
 
 body.dark-mode {
-    background-color: rgb(3, 3, 75);
-    color: #ffffff;
-}
-
-.App {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.light-mode .App {
-    background-color: #f5f5f5;
-    color: #333333;
-}
-
-body.dark-mode .App {
-    background-color: rgb(3, 3, 75);
-    color: #ffffff;
+    background: linear-gradient(180deg, #0c0c1a 0%, #1a1a3a 30%, #2a2a5a 70%, #1a237e 100%);
+    color: #e9ecef;
+    min-height: 100vh;
+    --timeline-bg: rgba(45, 55, 72, 0.9);
+    --timeline-text: #e9ecef;
+    --timeline-secondary-text: #cbd5e0;
 }
 
 a {
@@ -31,14 +25,61 @@ a {
     /* medium slate blue accent */
 }
 
-body.light-mode a {
-    color: #008080;
-    /* teal for light mode */
+.App.light-mode a {
+    color: #2E8B57;
+    /* sea green for light mode */
 }
 
-body.dark-mode a {
+.App.dark-mode a {
     color: #b0c4de;
     /* light steel blue for dark mode */
+}
+
+/* Enhanced button styling for dark mode toggle */
+.App.dark-mode button {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+.App.dark-mode button:hover {
+    background-color: #555;
+}
+
+.App.light-mode button {
+    background-color: #f0f0f0;
+    color: #000000;
+    border: 1px solid #ccc;
+}
+
+.App.light-mode button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Specific styling for dark mode toggle button */
+.dark-mode-toggle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.App.dark-mode .dark-mode-toggle {
+    background: linear-gradient(135deg, #fafbfc 0%, #4b58e9 100%);
+}
+
+/* Logo styling */
+.App.dark-mode .logo {
+    color: #ffffff;
+}
+
+.App.light-mode .logo {
+    color: #000000;
 }
 
 /* Additional styling for buttons and header can be added here */

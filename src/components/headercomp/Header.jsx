@@ -20,8 +20,8 @@ const Header = ({ darkMode, setDarkMode }) => {
                 <p className="logo">SRIHARSHA NALADALA</p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <button onClick={toggleDarkMode} style={{ cursor: 'pointer', padding: '5px 10px' }}>
-                    {darkMode ? 'Light Mode' : 'Dark Mode'}
+                <button onClick={toggleDarkMode} className="dark-mode-toggle" style={{ cursor: 'pointer', padding: '8px 16px', borderRadius: '20px', fontWeight: 'bold', transition: 'all 0.3s ease' }}>
+                    {darkMode ? '☀️ Light' : '🌙 Dark'}
                 </button>
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

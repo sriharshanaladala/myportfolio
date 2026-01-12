@@ -4,9 +4,9 @@
 
 body {
   margin: 0px;
-  background-color: rgb(3, 3, 75) !important;
-  /* background-image: linear-gradient(100deg,rgb(3, 3, 75), purple); */
-  color: #fff !important;
+  /* background-color: rgb(3, 3, 75) !important; */
+  /* background-image: linear-gradient(100deg,rgb(3, 3, 75), rgb(13, 0, 128)); */
+  /* color: #fff !important; */
   box-sizing: border-box;
 }
 
