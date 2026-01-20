@@ -111,23 +111,34 @@ const aboutData = {
 
 const About = () => {
     const navigate = useNavigate();
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const renderTimelineItem = (item, isLeft) => {
         const containerStyle = {
             position: 'relative',
             width: '100%',
-            maxWidth: '500px',
+            maxWidth: isMobile ? '100%' : '45%',
             padding: '15px 20px',
             backgroundColor: 'var(--timeline-bg, #f0f8ff)',
             borderRadius: '8px',
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
             marginBottom: '20px',
             color: 'var(--timeline-text, #333)',
+            marginLeft: isMobile ? '0' : isLeft ? '0' : 'auto',
+            marginRight: isMobile ? '0' : isLeft ? 'auto' : '0',
         };
         const dotStyle = {
             position: 'absolute',
             top: '20px',
-            left: '-14px',
+            [isMobile ? 'left' : isLeft ? 'right' : 'left']: isMobile ? '-34px' : '-34px',
             width: '20px',
             height: '20px',
             backgroundColor: '#0077be',
@@ -280,21 +291,33 @@ const About = () => {
                 <div style={{
                     position: 'relative',
                     margin: '20px 0',
-                    paddingLeft: '40px',
-                    paddingRight: '40px',
-                    borderLeft: '2px solid #0077be',
+                    paddingLeft: isMobile ? '20px' : '20px',
+                    paddingRight: isMobile ? '20px' : '20px',
                 }}>
-                    {/* Timeline vertical line */}
-                    <div style={{
-                        position: 'absolute',
-                        left: '50%',
-                        top: 0,
-                        bottom: 0,
-                        width: '4px',
-                        backgroundColor: '#0077be',
-                        transform: 'translateX(-50%)',
-                        borderRadius: '2px',
-                    }}></div>
+                    {/* Timeline vertical line - hidden on mobile */}
+                    {!isMobile && (
+                        <div style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: 0,
+                            bottom: 0,
+                            width: '4px',
+                            backgroundColor: '#0077be',
+                            transform: 'translateX(-50%)',
+                            borderRadius: '2px',
+                        }}></div>
+                    )}
+                    {isMobile && (
+                        <div style={{
+                            position: 'absolute',
+                            left: '0',
+                            top: 0,
+                            bottom: 0,
+                            width: '4px',
+                            backgroundColor: '#0077be',
+                            borderRadius: '2px',
+                        }}></div>
+                    )}
 
                     {/* Experience items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -307,21 +330,33 @@ const About = () => {
                 <div style={{
                     position:'relative',
                     margin: '20px 0',
-                    paddingLeft: '40px',
-                    paddingRight: '40px',
-                    borderLeft: '2px solid #0077be',
+                    paddingLeft: isMobile ? '20px' : '20px',
+                    paddingRight: isMobile ? '20px' : '20px',
                 }}>
-                    {/* Timeline vertical line */}
-                    <div style={{
-                        position: 'absolute',
-                        left: '50%',
-                        top: 0,
-                        bottom: 0,
-                        width: '4px',
-                        backgroundColor: '#0077be',
-                        transform: 'translateX(-50%)',
-                        borderRadius: '2px',
-                    }}></div>
+                    {/* Timeline vertical line - hidden on mobile */}
+                    {!isMobile && (
+                        <div style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: 0,
+                            bottom: 0,
+                            width: '4px',
+                            backgroundColor: '#0077be',
+                            transform: 'translateX(-50%)',
+                            borderRadius: '2px',
+                        }}></div>
+                    )}
+                    {isMobile && (
+                        <div style={{
+                            position: 'absolute',
+                            left: '0',
+                            top: 0,
+                            bottom: 0,
+                            width: '4px',
+                            backgroundColor: '#0077be',
+                            borderRadius: '2px',
+                        }}></div>
+                    )}
 
                     {/* Education items */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
