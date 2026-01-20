@@ -138,11 +138,11 @@ const About = () => {
         const dotStyle = {
             position: 'absolute',
             top: '20px',
-            [isMobile ? 'left' : isLeft ? 'right' : 'left']: isMobile ? '-34px' : '-34px',
-            width: '20px',
-            height: '20px',
+            [isMobile ? 'left' : isLeft ? 'right' : 'left']: isMobile ? '-34px' : '-15px',
+            width: '25px',
+            height: '25px',
             backgroundColor: '#0077be',
-            borderRadius: '50%',
+            borderRadius: '80%',
             border: '4px solid white',
             boxShadow: '0 0 0 2px #0077be',
         };
