@@ -17,3 +17,9 @@
   REACT_APP_EMAIL = ""
   REACT_APP_PHONE = ""
   REACT_APP_FORMSPEE_FORM_ID = ""
+
+# Redirect all non-file requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
