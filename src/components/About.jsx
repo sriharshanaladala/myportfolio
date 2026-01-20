@@ -115,20 +115,19 @@ const About = () => {
     const renderTimelineItem = (item, isLeft) => {
         const containerStyle = {
             position: 'relative',
-            width: '50%',
-            padding: '10px 20px',
+            width: '100%',
+            maxWidth: '500px',
+            padding: '15px 20px',
             backgroundColor: 'var(--timeline-bg, #f0f8ff)',
             borderRadius: '8px',
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-            alignSelf: isLeft ? 'flex-start' : 'flex-end',
-            marginLeft: isLeft ? '0' : undefined,
-            marginRight: !isLeft ? '0' : undefined,
+            marginBottom: '20px',
             color: 'var(--timeline-text, #333)',
         };
         const dotStyle = {
             position: 'absolute',
             top: '20px',
-            [isLeft ? 'right' : 'left']: '-14px',
+            left: '-14px',
             width: '20px',
             height: '20px',
             backgroundColor: '#0077be',
@@ -138,20 +137,20 @@ const About = () => {
         };
         const headingStyle = {
             color: '#0077be',
-            fontSize: '18px',
+            fontSize: 'clamp(16px, 4vw, 18px)',
             marginBottom: '5px',
             fontWeight: 'bold',
         };
         const textStyle = {
             color: 'var(--timeline-secondary-text, #555)',
-            fontSize: '14px',
+            fontSize: 'clamp(12px, 3vw, 14px)',
             margin: '3px 0',
         };
         return (
             <div key={item.title || item.degree || item.role} style={containerStyle}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <img src={item.logo} alt={`${item.company || item.institution || item.issuer} logo`} style={{ width: '50px', height: '50px' }} />
-                    <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
+                    <img src={item.logo} alt={`${item.company || item.institution || item.issuer} logo`} style={{ width: 'clamp(40px, 10vw, 50px)', height: 'clamp(40px, 10vw, 50px)', flexShrink: 0 }} />
+                    <div style={{ flex: 1, minWidth: '200px' }}>
                         {item.role && <h3 style={headingStyle}>{item.role}</h3>}
                         {item.degree && <h3 style={headingStyle}>{item.degree}</h3>}
                         {item.title && <h3 style={headingStyle}>{item.title}</h3>}
@@ -164,7 +163,7 @@ const About = () => {
                         {item.skills && (Array.isArray(item.skills) ? (
                             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: 6 }}>
                                 {item.skills.map((s, idx) => (
-                                    <span key={idx} style={{ background: '#eef2ff', color: '#0b3b66', padding: '4px 8px', borderRadius: 6, fontSize: 12 }}>{s}</span>
+                                    <span key={idx} style={{ background: '#eef2ff', color: '#0b3b66', padding: '3px 6px', borderRadius: 4, fontSize: 'clamp(10px, 2.5vw, 12px)' }}>{s}</span>
                                 ))}
                             </div>
                         ) : (
@@ -180,11 +179,11 @@ const About = () => {
     };
 
     return (
-        <div style={{ maxWidth: '800px', margin: '40px auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+        <div style={{ maxWidth: '1200px', margin: '40px auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
             <h1>About Me</h1>
 
             {/* Navigation Buttons */}
-            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button
                     onClick={() => navigate('/')}
                     style={{

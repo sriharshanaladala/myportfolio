@@ -8,7 +8,7 @@ const HomeIntro = () => {
     const buttonStyle = {
         margin: '10px',
         padding: '10px 20px',
-        fontSize: '16px',
+        fontSize: 'clamp(14px, 4vw, 16px)',
         cursor: 'pointer',
         color: 'white',
         background: 'linear-gradient(45deg, #0077be, #00aaff)',
@@ -18,6 +18,7 @@ const HomeIntro = () => {
         transition: 'background 0.3s ease, box-shadow 0.3s ease',
         outline: 'none',
         userSelect: 'none',
+        minWidth: '120px',
     };
 
     const buttonHover = {

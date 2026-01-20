@@ -1,21 +1,92 @@
 * {
-  /* overflow-x:hidden; */
+  box-sizing: border-box;
 }
 
 body {
   margin: 0px;
-  /* background-color: rgb(3, 3, 75) !important; */
-  /* background-image: linear-gradient(100deg,rgb(3, 3, 75), rgb(13, 0, 128)); */
-  /* color: #fff !important; */
   box-sizing: border-box;
 }
 
 .portfolio_page {
-  display: grid;
-  grid-template-rows: 100px 1050px 1000px 900px 900px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0px;
 }
 
-.portfolio_page .project {
-  /* border: 1px solid rgb(250, 249, 249); */
+/* Responsive design */
+@media (max-width: 768px) {
+  .portfolio_page {
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .portfolio_page {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .portfolio_page {
+    padding: 0 40px;
+  }
+}
+
+/* Back to Home Button Styles */
+.back-home-btn:hover {
+  background-color: #0077be !important;
+  color: white !important;
+}
+
+/* Floating Contact Button Responsive */
+@media (max-width: 480px) {
+  /* Make button smaller on very small screens */
+  button[style*="position: fixed"] {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  button[style*="position: fixed"] svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Contact Modal Responsive Styles */
+@media (max-width: 768px) {
+  /* Modal container adjustments for mobile */
+  div[style*="position: fixed"][style*="z-index: 2000"] {
+    padding: 10px !important;
+  }
+
+  /* Modal content adjustments */
+  div[style*="background-color: white"] {
+    padding: 16px !important;
+    margin: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+
+  /* Form inputs responsive */
+  input[style*="padding: 12px"],
+  textarea[style*="padding: 12px"] {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 10px !important;
+  }
+
+  /* Button adjustments for mobile */
+  button[style*="padding: 12px 24px"] {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    min-width: 100px !important;
+  }
+
+  /* Close button positioning */
+  .close-btn {
+    top: 8px !important;
+    right: 8px !important;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 20px !important;
+  }
 }

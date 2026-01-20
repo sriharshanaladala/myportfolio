@@ -111,16 +111,16 @@ const Projects = () => {
     };
 
     if (loading) {
-        return <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>Loading projects...</div>;
+        return <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>Loading projects...</div>;
     }
 
     if (error) {
-        return <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto', color: 'red' }}>Error: {error}</div>;
+        return <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto', color: 'red' }}>Error: {error}</div>;
     }
 
     return (
         <motion.div
-            style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}
+            style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -128,7 +128,7 @@ const Projects = () => {
             <h1>My Works</h1>
 
             {/* Navigation Buttons */}
-            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button
                     onClick={() => navigate('/')}
                     style={{
@@ -213,7 +213,7 @@ const Projects = () => {
             {/* Projects List */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(clamp(300px, 100%, 350px), 1fr))',
                 gap: '20px',
                 marginTop: '20px'
             }}>

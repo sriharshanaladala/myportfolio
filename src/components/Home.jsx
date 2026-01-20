@@ -7,7 +7,18 @@ const Home = () => {
     return (
         <>
             <MouseFollower />
-            <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px', gap: '40px' }}>
+            <div style={{
+                position: 'relative',
+                zIndex: 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '100px',
+                gap: '40px',
+                flexWrap: 'wrap',
+                padding: '20px',
+                minHeight: 'calc(100vh - 100px)'
+            }}>
                 <HomeIntro />
                 <ProfilePhoto />
             </div>

@@ -12,7 +12,13 @@ const ProfilePhoto = () => {
             <motion.img
                 src="https://avatars.githubusercontent.com/u/83389426?v=4"
                 alt="Sriharsha Naladala"
-                style={{ maxWidth: '250px', borderRadius: '50%', cursor: 'pointer' }}
+                style={{
+                    maxWidth: 'min(250px, 80vw)',
+                    borderRadius: '50%',
+                    cursor: 'pointer',
+                    width: '100%',
+                    height: 'auto'
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
             />

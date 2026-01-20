@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Configuration: to enable direct sends from the client using Formspree,
 // provide your Formspree form ID below (e.g., 'your-form-id').
@@ -12,6 +13,7 @@ const linkedinUrl = process.env.REACT_APP_LINKEDIN_URL;
 const Contact = () => {
 	const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
 	const [status, setStatus] = useState(null);
+	const navigate = useNavigate();
 
 	const update = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
@@ -61,19 +63,37 @@ const Contact = () => {
 	};
 
 	return (
-		<div style={{ maxWidth: 720, margin: '32px auto', padding: 20 }}>
+		<div style={{ maxWidth: '800px', margin: '32px auto', padding: '20px', width: '90%' }}>
+			<div style={{ marginBottom: '20px' }}>
+				<button
+					onClick={() => navigate('/')}
+					style={{
+						padding: '8px 16px',
+						borderRadius: '5px',
+						border: '1px solid #0077be',
+						backgroundColor: 'transparent',
+						color: '#0077be',
+						cursor: 'pointer',
+						fontSize: '14px',
+						transition: 'all 0.3s ease'
+					}}
+					className="back-home-btn"
+				>
+					← Back to Home
+				</button>
+			</div>
 			<h1>Contact</h1>
 			<p>If you'd like to reach me directly, use the form below. Recruiters can also connect with me on LinkedIn.</p>
 
 			<form onSubmit={handleSubmit} style={{ display: 'grid', gap: 10 }}>
-				<input required placeholder="Your name" value={form.name} onChange={e=>update('name', e.target.value)} />
-				<input required type="email" placeholder="Your email" value={form.email} onChange={e=>update('email', e.target.value)} />
-				<input placeholder="Subject" value={form.subject} onChange={e=>update('subject', e.target.value)} />
-				<textarea required placeholder="Message" rows={6} value={form.message} onChange={e=>update('message', e.target.value)} />
+				<input required placeholder="Your name" value={form.name} onChange={e=>update('name', e.target.value)} style={{ padding: '12px', fontSize: '16px', borderRadius: '4px', border: '1px solid #ccc' }} />
+				<input required type="email" placeholder="Your email" value={form.email} onChange={e=>update('email', e.target.value)} style={{ padding: '12px', fontSize: '16px', borderRadius: '4px', border: '1px solid #ccc' }} />
+				<input placeholder="Subject" value={form.subject} onChange={e=>update('subject', e.target.value)} style={{ padding: '12px', fontSize: '16px', borderRadius: '4px', border: '1px solid #ccc' }} />
+				<textarea required placeholder="Message" rows={6} value={form.message} onChange={e=>update('message', e.target.value)} style={{ padding: '12px', fontSize: '16px', borderRadius: '4px', border: '1px solid #ccc', resize: 'vertical' }} />
 
-				<div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-					<button type="submit" style={{ padding: '8px 12px' }}>Send Message</button>
-					<button type="button" onClick={openLinkedIn} style={{ padding: '8px 12px' }}>Connect on LinkedIn</button>
+				<div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+					<button type="submit" style={{ padding: '12px 24px', fontSize: '16px', borderRadius: '4px', border: 'none', backgroundColor: '#0077be', color: 'white', cursor: 'pointer' }}>Send Message</button>
+					<button type="button" onClick={openLinkedIn} style={{ padding: '12px 24px', fontSize: '16px', borderRadius: '4px', border: '1px solid #0077be', backgroundColor: 'transparent', color: '#0077be', cursor: 'pointer' }}>Connect on LinkedIn</button>
 				</div>
 			</form>
 

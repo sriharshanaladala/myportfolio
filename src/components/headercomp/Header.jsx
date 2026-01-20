@@ -5,19 +5,15 @@ const githubUrl = process.env.REACT_APP_GITHUB_URL;
 const linkedinUrl = process.env.REACT_APP_LINKEDIN_URL;
 const mailTo = `mailto:${process.env.REACT_APP_EMAIL}`;
 
-
-
 const Header = ({ darkMode, setDarkMode }) => {
-
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 20px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <p className="logo">SRIHARSHA NALADALA</p>
-            </div>
+        <header className="header">
+            <div className="logo">SRIHARSHA NALADALA</div>
+
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <button onClick={toggleDarkMode} className="dark-mode-toggle" style={{ cursor: 'pointer', padding: '8px 16px', borderRadius: '20px', fontWeight: 'bold', transition: 'all 0.3s ease' }}>
                     {darkMode ? '☀️ Light' : '🌙 Dark'}
@@ -38,7 +34,8 @@ const Header = ({ darkMode, setDarkMode }) => {
                     </svg>
                 </a>
             </div>
-        </div>
+        </header>
     );
 };
+
 export default Header;

@@ -10,6 +10,7 @@ import Home from './components/Home';
 import ProjectDetail from './components/ProjectDetail';
 import Resume from './components/Resume';
 import WaterWaveBackground from './components/WaterWaveBackground';
+import FloatingContactButton from './components/FloatingContactButton';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,6 +24,7 @@ function App() {
       <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
         <WaterWaveBackground darkMode={darkMode} />
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <FloatingContactButton />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
