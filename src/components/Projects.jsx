@@ -120,7 +120,15 @@ const Projects = () => {
 
     return (
         <motion.div
-            style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}
+            style={{ 
+                paddingTop: 'clamp(100px, 15vh, 120px)',
+                paddingLeft: 'clamp(15px, 5vw, 20px)',
+                paddingRight: 'clamp(15px, 5vw, 20px)',
+                paddingBottom: '20px',
+                maxWidth: '1200px', 
+                margin: '0 auto',
+                width: '100%'
+            }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -352,18 +360,22 @@ const Projects = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     marginTop: '30px',
-                    gap: '10px'
+                    gap: '8px',
+                    flexWrap: 'wrap',
+                    padding: '0 10px'
                 }}>
                     <button
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
                         style={{
-                            padding: '8px 12px',
+                            padding: 'clamp(6px, 2vw, 8px) clamp(8px, 2vw, 12px)',
                             borderRadius: '5px',
                             border: '1px solid #ccc',
                             backgroundColor: currentPage === 1 ? '#f0f0f0' : '#0077be',
                             color: currentPage === 1 ? '#999' : 'white',
-                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
+                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                            fontSize: 'clamp(12px, 2.5vw, 14px)',
+                            whiteSpace: 'nowrap'
                         }}
                     >
                         Previous
@@ -374,12 +386,14 @@ const Projects = () => {
                             key={page}
                             onClick={() => setCurrentPage(page)}
                             style={{
-                                padding: '8px 12px',
+                                padding: 'clamp(6px, 2vw, 8px) clamp(8px, 2vw, 12px)',
                                 borderRadius: '5px',
                                 border: '1px solid #ccc',
                                 backgroundColor: currentPage === page ? '#0077be' : 'white',
                                 color: currentPage === page ? 'white' : 'black',
-                                cursor: 'pointer'
+                                cursor: 'pointer',
+                                fontSize: 'clamp(12px, 2.5vw, 14px)',
+                                minWidth: 'clamp(32px, 5vw, 40px)'
                             }}
                         >
                             {page}
@@ -390,12 +404,14 @@ const Projects = () => {
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
                         style={{
-                            padding: '8px 12px',
+                            padding: 'clamp(6px, 2vw, 8px) clamp(8px, 2vw, 12px)',
                             borderRadius: '5px',
                             border: '1px solid #ccc',
                             backgroundColor: currentPage === totalPages ? '#f0f0f0' : '#0077be',
                             color: currentPage === totalPages ? '#999' : 'white',
-                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer'
+                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                            fontSize: 'clamp(12px, 2.5vw, 14px)',
+                            whiteSpace: 'nowrap'
                         }}
                     >
                         Next

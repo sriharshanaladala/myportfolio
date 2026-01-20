@@ -72,9 +72,9 @@ const FloatingContactButton = () => {
             <motion.div
                 style={{
                     position: 'fixed',
-                    bottom: '20px',
-                    right: '20px',
-                    zIndex: 1000,
+                    bottom: 'clamp(10px, 3vh, 20px)',
+                    right: 'clamp(10px, 3vw, 20px)',
+                    zIndex: 999,
                 }}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -85,8 +85,8 @@ const FloatingContactButton = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     style={{
-                        width: '60px',
-                        height: '60px',
+                        width: 'clamp(50px, 12vw, 60px)',
+                        height: 'clamp(50px, 12vw, 60px)',
                         borderRadius: '50%',
                         background: 'linear-gradient(45deg, #0077be, #00aaff)',
                         border: 'none',
