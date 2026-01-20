@@ -1,7 +1,7 @@
 [build]
   node_version = "18"
   command = "npm run build"
-  environment = { SECRETS_SCAN_OMIT_KEYS = "REACT_APP_GITHUB_URL,REACT_APP_LINKEDIN_URL,REACT_APP_EMAIL" }
+  environment = { SECRETS_SCAN_OMIT_KEYS = "REACT_APP_GITHUB_URL,REACT_APP_LINKEDIN_URL,REACT_APP_EMAIL,REACT_APP_FORMSPEE_FORM_ID" }
 
 # Redirect all non-file requests to index.html for SPA routing
 [[redirects]]
