@@ -2,22 +2,6 @@
   node_version = "18"
   command = "npm run build"
 
-# Configure secrets scanning to omit .env files
-[build.environment]
-  REACT_APP_LINKEDIN_URL = ""
-  REACT_APP_GITHUB_URL = ""
-  REACT_APP_EMAIL = ""
-  REACT_APP_PHONE = ""
-  REACT_APP_FORMSPEE_FORM_ID = ""
-
-# Scan settings - omit .env files from secrets scanning
-[context.production.environment]
-  REACT_APP_LINKEDIN_URL = ""
-  REACT_APP_GITHUB_URL = ""
-  REACT_APP_EMAIL = ""
-  REACT_APP_PHONE = ""
-  REACT_APP_FORMSPEE_FORM_ID = ""
-
 # Redirect all non-file requests to index.html for SPA routing
 [[redirects]]
   from = "/*"
