@@ -9,6 +9,7 @@ body {
 
 .App {
   position: relative;
+  padding-top: var(--header-height, 80px);
 }
 
 .portfolio_page {

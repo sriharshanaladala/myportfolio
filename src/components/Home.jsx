@@ -13,11 +13,10 @@ const Home = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '100px',
                 gap: '40px',
                 flexWrap: 'wrap',
                 padding: '20px',
-                minHeight: 'calc(100vh - 100px)'
+                minHeight: 'calc(100vh - var(--header-height, 80px))'
             }}>
                 <HomeIntro />
                 <ProfilePhoto />

@@ -1,0 +1,51 @@
+.float-logo {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 11000;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    user-select: none;
+}
+
+.float-icons {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 11000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.icon-btn, .icon-link {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.icon-btn:hover, .icon-link:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.12);
+}
+
+@media (max-width: 480px) {
+    .float-logo { padding: 6px 8px; font-size: 14px; }
+    .icon-btn, .icon-link { width: 40px; height: 40px; }
+}

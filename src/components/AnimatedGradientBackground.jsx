@@ -9,6 +9,7 @@ const AnimatedGradientBackground = () => {
             width: '100vw',
             height: '100vh',
             zIndex: -2,
+            pointerEvents: 'none',
             background: 'linear-gradient(-45deg, #001a33, #00264d, #003366, #004080, #00264d, #001a33)',
             backgroundSize: '400% 400%',
             animation: 'gradientAnimation 15s ease infinite'

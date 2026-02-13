@@ -11,6 +11,8 @@ import ProjectDetail from './components/ProjectDetail';
 import Resume from './components/Resume';
 import WaterWaveBackground from './components/WaterWaveBackground';
 import FloatingContactButton from './components/FloatingContactButton';
+import FloatingTopIcons from './components/FloatingTopIcons';
+import './stylings/floatingIcons.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,6 +26,7 @@ function App() {
       <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
         <WaterWaveBackground darkMode={darkMode} />
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <FloatingTopIcons darkMode={darkMode} setDarkMode={setDarkMode} />
         <FloatingContactButton />
         <Routes>
           <Route path="/" element={<Home />} />
