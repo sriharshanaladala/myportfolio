@@ -10,7 +10,7 @@ const FloatingTopIcons = ({ darkMode, setDarkMode }) => {
 
     return (
         <>
-            <div className="float-logo" onClick={() => navigate('/')}>S.N.</div>
+            <div className="float-logo" onClick={() => navigate('/')}>SRIHARSHA NALADALA</div>
 
             <div className="float-icons">
                 <button
