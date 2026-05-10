@@ -20,6 +20,49 @@ body.dark-mode .resume-content { padding: 16px; background: rgba(33, 37, 41, 0.9
 .resume-content ul { margin-left: 18px; }
 
 @media print {
-	.resume-actions { display: none; }
-	.resume-root { padding: 0; }
+	/* Hide all page chrome and floating UI when printing, then reveal only the resume */
+	body * {
+		visibility: hidden !important;
+	}
+
+	.resume-root,
+	.resume-root * {
+		visibility: visible !important;
+	}
+
+	.resume-actions {
+		display: none !important;
+	}
+
+	.resume-root {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 0 !important;
+		margin: 0 !important;
+		background: #ffffff !important;
+		box-shadow: none !important;
+		color: #000 !important;
+	}
+
+	.resume-content {
+		background: transparent !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		padding: 0 !important;
+	}
+
+	.resume-content h1,
+	.resume-content h2,
+	.resume-content h3,
+	.resume-content p,
+	.resume-content li {
+		color: inherit !important;
+	}
+
+	* {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+	}
 }
