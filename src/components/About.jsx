@@ -13,32 +13,31 @@ import bhashyamLogo from '../data/bhashyam school.png';
 const aboutData = {
     profileImage: "https://avatars.githubusercontent.com/u/83389426?v=4",
     name: "Sriharsha Naladala",
-    title: "Programmer Analyst — NextRow Digital",
-    description: "Hi, I'm Sri Harsha — a passionate developer blending technology, business, and AI-driven creativity. Currently focused on personalization with Adobe Target and AEM.",
-    summary: "Working as an Adobe Target Developer delivering personalized digital experiences. Hands-on with AEM authoring and component development in local environments. Exploring AI-assisted development and vibe coding for rapid prototyping.",
+    title: "Software Engineer — NextRow Digital",
+    description: "Hi, I'm Sri Harsha — a passionate Software Engineer blending technology, business, and AI-driven creativity. Currently focused on personalization with Adobe Target and AEM.",
+    summary: "Working as a Software Engineer delivering personalized digital experiences with Adobe Experience Cloud. Hands-on with AEM authoring and component development. Exploring AI-assisted development and vibe coding for rapid prototyping.",
     experienceHighlights: [
-        "Adobe Target personalization for enterprise websites",
+        "Adobe Experience Cloud implementations for enterprise websites",
         "AEM component development and content authoring",
         "AI-assisted development workflows and rapid prototyping (vibe coding)"
     ],
     currentFocus: "Personalization with Adobe Target for large-scale enterprise websites. Working knowledge of AEM Sites, component development, and authoring tools.",
     vibeCoding: "Vibe coding is an AI-powered approach where natural language inputs drive code generation (e.g., ChatGPT/Codex) so I can focus on strategy and UX while AI helps with boilerplate code.",
     technicalSkills: {
-        languages: ["JavaScript", "React", "Node.js", "Express.js", "Python"],
-        web: ["HTML", "CSS", "Bootstrap", "REST APIs"],
-        adobe: ["Adobe Target", "AEM (local setup & authoring)"],
-        db: ["MongoDB", "MySQL", "PostgreSQL"],
-        tools: ["Git", "GitHub", "VS Code", "Postman", "Linux", "Agile"],
-        aiLearning: ["Pandas", "NumPy", "Scikit-learn", "OpenCV (basics)"]
+        adobe: ["Adobe Analytics", "Adobe Target", "Adobe Experience Platform", "Adobe Experience Manager", "Web SDK (Alloy.js)", "Adobe Launch / Data Collection", "XDM Schema", "Customer Journey Analytics (CJA)", "A/B Testing & Personalization", "SDR Documentation", "Data Layer Implementation (EDDL / ACDL)"],
+        frontend: ["JavaScript", "React.js", "Node.js", "Express.js", "HTML5, CSS3, Bootstrap", "REST APIs"],
+        databases: ["MongoDB", "MySQL"],
+        tools: ["Git & GitHub", "Postman", "VS Code", "Agile / Jira"],
+        additional: ["Python Fundamentals", "AI-assisted Development", "Analytics Debugging & QA"]
     },
     experience: [
         {
-            role: "Programmer Analyst",
+            role: "Software Engineer",
             company: "NextRow Digital",
             type: "Full-time",
             period: "Jun 2024 - Present",
             location: "Hyderabad, Telangana, India · On-site",
-            skills: ["Adobe Target", "AEM", "Javascript", "Html", "CSS","Jquery"],
+            skills: ["Adobe Analytics", "Adobe Target", "Adobe Experience Platform", "Adobe Experience Manager", "Web SDK (Alloy.js)", "Adobe Launch / Data Collection", "XDM Schema", "Customer Journey Analytics (CJA)", "A/B Testing & Personalization", "SDR Documentation", "Data Layer Implementation (EDDL / ACDL)", "JavaScript", "React.js", "Node.js", "Express.js", "HTML5, CSS3, Bootstrap", "REST APIs"],
             logo: nextRowLogo,
             align: "left"
         },
@@ -104,6 +103,7 @@ const aboutData = {
     ],
     contact: {
         email: process.env.REACT_APP_EMAIL,
+        phone: process.env.REACT_APP_PHONE,
         linkedIn: process.env.REACT_APP_LINKEDIN_URL,
         github: process.env.REACT_APP_GITHUB_URL
     }
@@ -385,6 +385,7 @@ const About = () => {
             <section>
                 <h2>Contact</h2>
                 <p>Email: {aboutData.contact.email}</p>
+                <p>Mobile: {aboutData.contact.phone}</p>
                 <p>LinkedIn: <a href={aboutData.contact.linkedIn} target="_blank" rel="noopener noreferrer">{aboutData.contact.linkedIn}</a></p>
                 <p>GitHub: <a href={aboutData.contact.github} target="_blank" rel="noopener noreferrer">{aboutData.contact.github}</a></p>
             </section>

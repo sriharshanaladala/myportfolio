@@ -108,6 +108,7 @@ const Contact = () => {
 			<div>
 				<p>Alternate:</p>
 				<p>Email: <a href={`mailto:${process.env.REACT_APP_EMAIL}`}>{process.env.REACT_APP_EMAIL}</a></p>
+				<p>Mobile: {process.env.REACT_APP_PHONE}</p>
 				<p>LinkedIn: <a href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a></p>
 			</div>
 

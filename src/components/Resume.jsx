@@ -28,7 +28,7 @@ const Resume = () => {
           </p>
 
           <p>
-            Email: {process.env.REACT_APP_EMAIL} | Hyderabad, India
+            Email: {process.env.REACT_APP_EMAIL} | Mobile: {process.env.REACT_APP_PHONE} | Hyderabad, India
           </p>
 
           <p>
