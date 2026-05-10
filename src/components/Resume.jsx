@@ -6,77 +6,234 @@ const Resume = () => {
   const resumeRef = useRef();
   const navigate = useNavigate();
 
-  // ATS-friendly, plain-HTML resume for ~2 years experience
   return (
     <div className="resume-root">
       <div className="resume-actions">
         <button onClick={() => navigate('/')}>Back to Home</button>
-        <button onClick={() => window.print()} style={{ marginLeft: 8 }}>Print / Save PDF</button>
-        <button onClick={() => navigate('/contact')} style={{ marginLeft: 8 }}>Contact</button>
+        <button onClick={() => window.print()} style={{ marginLeft: 8 }}>
+          Print / Save PDF
+        </button>
+        <button onClick={() => navigate('/contact')} style={{ marginLeft: 8 }}>
+          Contact
+        </button>
       </div>
 
       <div className="resume-content" ref={resumeRef}>
         <header>
           <h1>Sri Harsha Naladala</h1>
-          <p>Programmer Analyst — Adobe Target & AEM | Frontend Engineer</p>
-          <p>Email: {process.env.REACT_APP_EMAIL} | Hyderabad, India</p>
-          <p>LinkedIn: {process.env.REACT_APP_LINKEDIN_URL} | GitHub: {process.env.REACT_APP_GITHUB_URL}</p>
+
+          <p>
+            Programmer Analyst — Adobe Experience Cloud | Adobe Analytics,
+            Adobe Target, AEP & AEM Engineer
+          </p>
+
+          <p>
+            Email: {process.env.REACT_APP_EMAIL} | Hyderabad, India
+          </p>
+
+          <p>
+            LinkedIn: {process.env.REACT_APP_LINKEDIN_URL} | GitHub:{' '}
+            {process.env.REACT_APP_GITHUB_URL}
+          </p>
         </header>
 
         <section>
           <h2>Professional Summary</h2>
-          <p>Frontend engineer with 2 years of experience building web applications and enterprise personalization solutions. Strong experience implementing Adobe Target experiments, AEM component development and authoring workflows, and building React-based UIs. Comfortable with full-stack JavaScript and Python fundamentals. Experienced with agile processes, version control, and collaborating across product and design teams. Uses AI-assisted tools for rapid prototyping (vibe coding).</p>
+
+          <p>
+            Adobe Experience Cloud and frontend engineer with 2+ years of
+            experience implementing enterprise personalization, analytics, and
+            customer data solutions. Hands-on experience with Adobe Target,
+            Adobe Analytics, Adobe Experience Platform (AEP), Web SDK, and AEM
+            component development. Skilled in React-based frontend development,
+            analytics implementation, data layer architecture, event tracking,
+            and experimentation strategies. Comfortable working across
+            full-stack JavaScript environments and collaborating with product,
+            analytics, and marketing teams in Agile workflows. Experienced in
+            AI-assisted development and rapid prototyping.
+          </p>
         </section>
 
         <section>
           <h2>Technical Skills</h2>
+
           <ul>
-            <li>Languages / Frameworks: JavaScript, React, Node.js, Express.js, Python</li>
-            <li>Web: HTML5, CSS3, Bootstrap, REST APIs</li>
-            <li>Adobe: Adobe Target, Adobe Experience Manager (AEM) — authoring & component dev</li>
-            <li>Databases: MongoDB, MySQL, PostgreSQL</li>
-            <li>Tools: Git, GitHub, VS Code, Postman, Agile, Linux</li>
-            <li>Data / ML basics: Pandas, NumPy, Scikit-learn, OpenCV</li>
+            <li>
+              <strong>Languages / Frameworks:</strong> JavaScript, React,
+              Node.js, Express.js, Python
+            </li>
+
+            <li>
+              <strong>Web Technologies:</strong> HTML5, CSS3, Bootstrap, REST
+              APIs, SPA Development
+            </li>
+
+            <li>
+              <strong>Adobe Experience Cloud:</strong> Adobe Analytics, Adobe
+              Target, Adobe Experience Platform (AEP), Web SDK (Alloy.js),
+              Adobe Launch / Data Collection, AEM
+            </li>
+
+            <li>
+              <strong>Analytics & Data:</strong> XDM Schema, Data Layers
+              (EDDL/ACDL), Event Tracking, SDR Documentation, Customer Journey
+              Analytics (CJA)
+            </li>
+
+            <li>
+              <strong>Databases:</strong> MongoDB, MySQL, PostgreSQL
+            </li>
+
+            <li>
+              <strong>Tools:</strong> Git, GitHub, VS Code, Postman, Linux,
+              Agile, Jira
+            </li>
+
+            <li>
+              <strong>Data / ML Basics:</strong> Pandas, NumPy,
+              Scikit-learn, OpenCV
+            </li>
           </ul>
         </section>
 
         <section>
           <h2>Professional Experience</h2>
+
           <h3>Programmer Analyst — NextRow Digital</h3>
-          <p><em>Jun 2024 – Present</em> — Hyderabad, India</p>
+
+          <p>
+            <em>Jun 2024 – Present</em> — Hyderabad, India
+          </p>
+
           <ul>
-            <li>Implemented Adobe Target personalization and A/B experiments to deliver tailored content and recommendations for enterprise websites.</li>
-            <li>Developed and maintained AEM components and templates to support editorial workflows and multi-site content reuse in local AEM environments.</li>
-            <li>Built React UI components and integrated front-end features with REST APIs; improved front-end performance and developer experience.</li>
-            <li>Collaborated with product, design, and backend teams using Agile practices and Git-based workflows.</li>
-            <li>Explored AI-assisted development (vibe coding) to accelerate prototyping and reduce repetitive implementation work.</li>
+            <li>
+              Implemented Adobe Target A/B testing, XT activities, and
+              personalization campaigns for enterprise and pharmaceutical
+              websites.
+            </li>
+
+            <li>
+              Worked on Adobe Analytics and Adobe Experience Platform (AEP)
+              implementations using Web SDK and XDM schema-based tracking.
+            </li>
+
+            <li>
+              Designed and validated data layer structures (EDDL/ACDL) and
+              mapped analytics requirements for customer journey tracking.
+            </li>
+
+            <li>
+              Created Solution Design Reference (SDR) documentation for Adobe
+              Analytics and Customer Journey Analytics (CJA) implementations.
+            </li>
+
+            <li>
+              Configured Adobe Launch / Data Collection rules, data elements,
+              and event-based tracking for forms, page interactions, and user
+              engagement events.
+            </li>
+
+            <li>
+              Worked on AEM component development, editable templates, and
+              authoring workflows to support reusable enterprise content.
+            </li>
+
+            <li>
+              Built React UI components and integrated frontend features with
+              REST APIs while improving performance and maintainability.
+            </li>
+
+            <li>
+              Collaborated with product, analytics, design, and backend teams
+              using Agile methodologies and Git-based workflows.
+            </li>
+
+            <li>
+              Leveraged AI-assisted development tools to accelerate prototyping,
+              implementation, and debugging workflows.
+            </li>
           </ul>
 
           <h3>Intern — JSpiders (Training & Development Center)</h3>
-          <p><em>Nov 2023 – Jul 2024</em> — Hyderabad, India</p>
+
+          <p>
+            <em>Nov 2023 – Jul 2024</em> — Hyderabad, India
+          </p>
+
           <ul>
-            <li>Worked on web fundamentals and small full-stack projects using HTML, CSS, and JavaScript; contributed to learning-focused assignments and labs.</li>
-            <li>Learned software development processes, debugging, and collaboration tools.</li>
+            <li>
+              Worked on frontend and full-stack development assignments using
+              HTML, CSS, JavaScript, React, and Node.js.
+            </li>
+
+            <li>
+              Learned software development lifecycle practices, debugging,
+              version control, and collaborative development workflows.
+            </li>
           </ul>
         </section>
 
         <section>
           <h2>Selected Projects</h2>
+
           <ul>
-            <li><strong>Nomad Pharma</strong> — Implemented Adobe Target personalization and content recommendations for a pharmaceutical website.</li>
-            <li><strong>Finance Tracker App</strong> — MERN stack application for budgeting, expense tracking, and saving goals.</li>
+            <li>
+              <strong>Nomad Pharma</strong> — Implemented Adobe Target
+              personalization campaigns, recommendation activities, and
+              analytics tracking for a pharmaceutical ecommerce website.
+            </li>
+
+            <li>
+              <strong>Adobe Web SDK Analytics Implementation</strong> —
+              Worked on XDM schema mapping, Web SDK event tracking, Adobe
+              Analytics integration, and SDR preparation using EDDL-based data
+              layers.
+            </li>
+
+            <li>
+              <strong>Finance Tracker App</strong> — Built a MERN stack
+              application for budgeting, expense tracking, and savings goal
+              management.
+            </li>
           </ul>
         </section>
 
         <section>
           <h2>Education & Certifications</h2>
-          <p>Master of Computer Applications (MCA), Computer Software Technology — Krishna Chaitanya Degree & PG College</p>
-          <p>Certifications: Developing AI Applications with Python and Flask (IBM), Generative AI: Introduction and Applications (IBM)</p>
+
+          <p>
+            <strong>
+              Master of Computer Applications (MCA)
+            </strong>{' '}
+            — Computer Software Technology
+            <br />
+            Krishna Chaitanya Degree & PG College
+          </p>
+
+          <p>
+            <strong>Certifications:</strong>
+          </p>
+
+          <ul>
+            <li>
+              Developing AI Applications with Python and Flask — IBM
+            </li>
+
+            <li>
+              Generative AI: Introduction and Applications — IBM
+            </li>
+          </ul>
         </section>
 
         <section>
           <h2>Career Goals</h2>
-          <p>Deepen expertise in Adobe Experience Cloud and digital personalization, grow full-stack proficiency in Python and JavaScript, and build AI-assisted developer tools.</p>
+
+          <p>
+            To deepen expertise across Adobe Experience Cloud technologies,
+            customer data platforms, analytics engineering, and digital
+            personalization while continuing to grow as a full-stack developer
+            and AI-assisted solutions engineer.
+          </p>
         </section>
       </div>
     </div>
