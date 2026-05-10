@@ -23,7 +23,7 @@ const Resume = () => {
           <h1>Sri Harsha Naladala</h1>
 
           <p>
-            Programmer Analyst — Adobe Experience Cloud | Adobe Analytics,
+            Software Engineer — Adobe Experience Cloud | Adobe Analytics,
             Adobe Target, AEP & AEM Engineer
           </p>
 
@@ -59,39 +59,26 @@ const Resume = () => {
 
           <ul>
             <li>
-              <strong>Languages / Frameworks:</strong> JavaScript, React,
-              Node.js, Express.js, Python
-            </li>
-
-            <li>
-              <strong>Web Technologies:</strong> HTML5, CSS3, Bootstrap, REST
-              APIs, SPA Development
-            </li>
-
-            <li>
               <strong>Adobe Experience Cloud:</strong> Adobe Analytics, Adobe
-              Target, Adobe Experience Platform (AEP), Web SDK (Alloy.js),
-              Adobe Launch / Data Collection, AEM
+              Target, Adobe Experience Platform, Adobe Experience Manager, Web
+              SDK (Alloy.js), Adobe Launch / Data Collection, XDM Schema,
+              Customer Journey Analytics (CJA), A/B Testing & Personalization,
+              SDR Documentation, Data Layer Implementation (EDDL / ACDL)
             </li>
 
             <li>
-              <strong>Analytics & Data:</strong> XDM Schema, Data Layers
-              (EDDL/ACDL), Event Tracking, SDR Documentation, Customer Journey
-              Analytics (CJA)
+              <strong>Frontend & Backend:</strong> JavaScript, React.js,
+              Node.js, Express.js, HTML5, CSS3, Bootstrap, REST APIs
             </li>
 
             <li>
-              <strong>Databases:</strong> MongoDB, MySQL, PostgreSQL
+              <strong>Databases & Tools:</strong> MongoDB, MySQL, Git &
+              GitHub, Postman, VS Code, Agile / Jira
             </li>
 
             <li>
-              <strong>Tools:</strong> Git, GitHub, VS Code, Postman, Linux,
-              Agile, Jira
-            </li>
-
-            <li>
-              <strong>Data / ML Basics:</strong> Pandas, NumPy,
-              Scikit-learn, OpenCV
+              <strong>Additional:</strong> Python Fundamentals,
+              AI-assisted Development, Analytics Debugging & QA
             </li>
           </ul>
         </section>
@@ -99,7 +86,7 @@ const Resume = () => {
         <section>
           <h2>Professional Experience</h2>
 
-          <h3>Programmer Analyst — NextRow Digital</h3>
+          <h3>Software Engineer — NextRow Digital</h3>
 
           <p>
             <em>Jun 2024 – Present</em> — Hyderabad, India
