@@ -272,16 +272,20 @@ const About = () => {
                 <h2>Technical Skills</h2>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                     <div style={{ minWidth: 180 }}>
-                        <h4>Languages / Frameworks</h4>
-                        <ul>{aboutData.technicalSkills.languages.map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                        <h4>Adobe Experience Cloud</h4>
+                        <ul>{aboutData.technicalSkills.adobe.map((s,i)=>(<li key={i}>{s}</li>))}</ul>
                     </div>
                     <div style={{ minWidth: 180 }}>
-                        <h4>Web / Tools</h4>
-                        <ul>{aboutData.technicalSkills.web.concat(aboutData.technicalSkills.tools).map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                        <h4>Frontend & Backend</h4>
+                        <ul>{aboutData.technicalSkills.frontend.map((s,i)=>(<li key={i}>{s}</li>))}</ul>
                     </div>
                     <div style={{ minWidth: 180 }}>
-                        <h4>Databases / AI</h4>
-                        <ul>{aboutData.technicalSkills.db.concat(aboutData.technicalSkills.aiLearning).map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                        <h4>Databases & Tools</h4>
+                        <ul>{aboutData.technicalSkills.databases.concat(aboutData.technicalSkills.tools).map((s,i)=>(<li key={i}>{s}</li>))}</ul>
+                    </div>
+                    <div style={{ minWidth: 180 }}>
+                        <h4>Additional</h4>
+                        <ul>{aboutData.technicalSkills.additional.map((s,i)=>(<li key={i}>{s}</li>))}</ul>
                     </div>
                 </div>
             </section>
